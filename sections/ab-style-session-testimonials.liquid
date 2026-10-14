@@ -1,11 +1,11 @@
-<section class="ab-section ab-testimonials color-{{ section.settings.color_scheme }}">
-  <div class="page-width">
-    <div class="ab-section__intro">
-      {%- if section.settings.eyebrow != blank -%}<p class="ab-eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
-      {%- if section.settings.heading != blank -%}<h2 class="ab-section__heading">{{ section.settings.heading | escape }}</h2>{%- endif -%}
-      {%- if section.settings.intro != blank -%}<div class="rte">{{ section.settings.intro }}</div>{%- endif -%}
-    </div>
-    {%- if section.blocks.size > 0 -%}
+{%- if section.blocks.size > 0 or request.design_mode -%}
+  <section class="ab-section ab-testimonials color-{{ section.settings.color_scheme }}">
+    <div class="page-width">
+      <div class="ab-section__intro">
+        {%- if section.settings.eyebrow != blank -%}<p class="ab-eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+        {%- if section.settings.heading != blank -%}<h2 class="ab-section__heading">{{ section.settings.heading | escape }}</h2>{%- endif -%}
+        {%- if section.settings.intro != blank -%}<div class="rte">{{ section.settings.intro }}</div>{%- endif -%}
+      </div>
       <div class="ab-testimonials__grid">
         {%- for block in section.blocks -%}
           <figure class="ab-quote" {{ block.shopify_attributes }}>
@@ -15,9 +15,9 @@
           </figure>
         {%- endfor -%}
       </div>
-    {%- endif -%}
-  </div>
-</section>
+    </div>
+  </section>
+{%- endif -%}
 
 {% schema %}
 {

@@ -10,7 +10,7 @@
     "testimonials": {"type":"ab-style-session-testimonials","settings":{}},
     "faq": {"type":"ab-style-session-faq","blocks":{
       "faq_1":{"type":"faq","settings":{"question":"What happens in a style session?","answer":"<p>Your stylist learns about your occasion and preferences, then helps you explore a made-to-order look.</p>"}},
-      "faq_2":{"type":"faq","settings":{"question":"How long does a consultation take?","answer":"<p>Your team can add the expected session length here.</p>"}}
+      "faq_2":{"type":"faq","settings":{"question":"How long does a consultation take?","answer":"<p>Session length depends on your consultation. Please contact the team for details when arranging your appointment.</p>"}}
     },"block_order":["faq_1","faq_2"],"settings":{}},
     "booking": {"type":"ab-style-session-booking","settings":{}}
   },
