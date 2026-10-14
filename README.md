@@ -25,10 +25,17 @@ shopify auth login
 shopify theme dev --store addicted-bespoken-demo.myshopify.com
 ```
 
-To update the existing assignment preview theme shared earlier (ID `188142158075`), push to that theme and leave the live theme untouched:
+The persistent unpublished assignment preview is theme ID `188152742139`. Push the full theme folders (including Dawn's base files) to that theme and leave the live theme untouched:
 
 ```powershell
-shopify theme push --store addicted-bespoken-demo.myshopify.com --theme 188142158075
+shopify theme push --store addicted-bespoken-demo.myshopify.com --theme 188152742139 `
+  --only "assets/**" `
+  --only "config/**" `
+  --only "layout/**" `
+  --only "locales/**" `
+  --only "sections/**" `
+  --only "snippets/**" `
+  --only "templates/**"
 ```
 
 Shopify CLI will return the preview and editor URLs. Do not use `--publish` for assignment review unless the store owner explicitly decides to publish after QA.
