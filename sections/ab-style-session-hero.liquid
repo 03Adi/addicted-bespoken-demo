@@ -4,12 +4,12 @@
       {%- if section.settings.mobile_image != blank -%}
         <source media="(max-width: 749px)" srcset="{{ section.settings.mobile_image | image_url: width: 1000 }}">
       {%- else -%}
-        <source media="(max-width: 749px)" srcset="{{ 'ab-style-session-demo-mobile.svg' | asset_url }}">
+        <source media="(max-width: 749px)" srcset="{{ 'ab-style-session-hero-mobile.png' | asset_url }}">
       {%- endif -%}
       {%- if section.settings.desktop_image != blank -%}
         {{ section.settings.desktop_image | image_url: width: 2400 | image_tag: class: 'ab-hero__image', widths: '750, 1100, 1500, 2000, 2400', sizes: '100vw', loading: 'eager', fetchpriority: 'high' }}
       {%- else -%}
-        <img class="ab-hero__image" src="{{ 'ab-style-session-demo-desktop.svg' | asset_url }}" width="2400" height="1200" alt="" loading="eager" fetchpriority="high">
+        <img class="ab-hero__image" src="{{ 'ab-style-session-hero-desktop.png' | asset_url }}" width="941" height="512" alt="A tailored suit displayed in a menswear boutique" loading="eager" fetchpriority="high">
       {%- endif -%}
     </picture>
   </div>
