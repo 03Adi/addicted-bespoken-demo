@@ -12,7 +12,7 @@
       "faq_1":{"type":"faq","settings":{"question":"What happens in a style session?","answer":"<p>Your stylist learns about your occasion and preferences, then helps you explore a made-to-order look.</p>"}},
       "faq_2":{"type":"faq","settings":{"question":"How long does a consultation take?","answer":"<p>Session length depends on your consultation. Please contact the team for details when arranging your appointment.</p>"}}
     },"block_order":["faq_1","faq_2"],"settings":{}},
-    "booking": {"type":"ab-style-session-booking","settings":{}}
+    "booking": {"type":"ab-style-session-booking","settings":{"calendly_url":"https://calendly.com/adityadeveloper03/new-meeting"}}
   },
   "order": ["hero","steps","featured","testimonials","faq","booking"]
 }
