@@ -1,0 +1,43 @@
+{%- assign fabric = product.metafields.custom.fabric.value -%}
+{%- assign production_time = product.metafields.custom.production_time.value -%}
+{%- assign lapel_style = product.metafields.custom.lapel_style.value -%}
+{%- assign lining_colour = product.metafields.custom.lining_color.value -%}
+{%- assign monogram = product.metafields.custom.monogram.value -%}
+{%- if fabric != blank or production_time != blank or lapel_style != blank or lining_colour != blank or monogram != blank -%}
+  <section class="ab-section ab-bespoke-details color-{{ section.settings.color_scheme }}">
+    <div class="page-width">
+      <div class="ab-section__intro">
+        {%- if section.settings.eyebrow != blank -%}<p class="ab-eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+        {%- if section.settings.heading != blank -%}<h2 class="ab-section__heading">{{ section.settings.heading | escape }}</h2>{%- endif -%}
+        {%- if section.settings.intro != blank -%}<div class="rte">{{ section.settings.intro }}</div>{%- endif -%}
+      </div>
+      <dl class="ab-bespoke-details__grid">
+        {%- if fabric != blank -%}<div><dt>{{ section.settings.fabric_label | escape }}</dt><dd>{{ fabric | escape }}</dd></div>{%- endif -%}
+        {%- if production_time != blank -%}<div><dt>{{ section.settings.production_time_label | escape }}</dt><dd>{{ production_time | escape }}</dd></div>{%- endif -%}
+        {%- if lapel_style != blank -%}<div><dt>{{ section.settings.lapel_style_label | escape }}</dt><dd>{{ lapel_style | escape }}</dd></div>{%- endif -%}
+        {%- if lining_colour != blank -%}<div><dt>{{ section.settings.lining_colour_label | escape }}</dt><dd>{{ lining_colour | escape }}</dd></div>{%- endif -%}
+        {%- if monogram != blank -%}<div><dt>{{ section.settings.monogram_label | escape }}</dt><dd>{{ monogram | escape }}</dd></div>{%- endif -%}
+      </dl>
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Bespoke details",
+  "tag": "section",
+  "class": "section-ab-bespoke-details",
+  "settings": [
+    {"type":"text","id":"eyebrow","label":"Eyebrow","default":"MADE TO ORDER"},
+    {"type":"text","id":"heading","label":"Heading","default":"Made around you"},
+    {"type":"richtext","id":"intro","label":"Intro","default":"<p>Explore the materials and personal details available for this piece.</p>"},
+    {"type":"text","id":"fabric_label","label":"Fabric label","default":"Fabric"},
+    {"type":"text","id":"production_time_label","label":"Production time label","default":"Production time"},
+    {"type":"text","id":"lapel_style_label","label":"Lapel style label","default":"Lapel style"},
+    {"type":"text","id":"lining_colour_label","label":"Lining colour label","default":"Lining colour"},
+    {"type":"text","id":"monogram_label","label":"Monogram label","default":"Monogram"},
+    {"type":"color_scheme","id":"color_scheme","label":"Color scheme","default":"scheme-2"}
+  ],
+  "presets": [{"name": "Bespoke details"}]
+}
+{% endschema %}

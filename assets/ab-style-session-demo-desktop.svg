@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Bespoke tailoring style session</title>
+  <desc id="desc">Illustrated editorial scene of a tailor fitting a charcoal suit in a warm studio.</desc>
+  <defs>
+    <linearGradient id="wall" x2="0" y2="1"><stop stop-color="#d8c7b4"/><stop offset="1" stop-color="#a78770"/></linearGradient>
+    <linearGradient id="suit" x2="1" y2="1"><stop stop-color="#3b4246"/><stop offset="1" stop-color="#171d20"/></linearGradient>
+    <linearGradient id="fabric" x2="1"><stop stop-color="#7b6554"/><stop offset=".5" stop-color="#b69c83"/><stop offset="1" stop-color="#6a5548"/></linearGradient>
+    <linearGradient id="light" x2="1"><stop stop-color="#fff5df" stop-opacity=".76"/><stop offset="1" stop-color="#fff5df" stop-opacity="0"/></linearGradient>
+    <pattern id="pinstripe" width="22" height="22" patternUnits="userSpaceOnUse"><path d="M4 0v22" stroke="#aab0ae" stroke-opacity=".16" stroke-width="2"/></pattern>
+  </defs>
+  <path fill="url(#wall)" d="M0 0h2400v1200H0z"/>
+  <path fill="#dfd4c6" opacity=".38" d="M0 0h910L550 810H0z"/>
+  <path fill="#776555" opacity=".23" d="M1790 0h610v1200h-830z"/>
+  <path fill="#5b5149" opacity=".42" d="M0 975h2400v225H0z"/>
+  <path fill="#403a35" opacity=".62" d="M0 1068h2400v132H0z"/>
+  <path fill="#f0e5d4" opacity=".72" d="M190 145h560v520H190z"/>
+  <path fill="#ad8c70" d="M230 184h480v442H230z"/>
+  <path fill="url(#light)" d="M230 184h480v442H230z"/>
+  <path fill="#443d37" d="M0 735h540v52H0z"/>
+  <path fill="#6b5647" d="M100 787h350v26H100z"/>
+  <path fill="url(#fabric)" d="M88 635h445l90 100H36z"/>
+  <path fill="#dbcab4" d="M350 562h188l-48 252H298z"/>
+  <path fill="#d0b89e" d="M338 560c-25-66-6-148 46-184 44-31 108-26 143 13 35 40 38 107 9 158l-31 51-140-3z"/>
+  <path fill="#51423a" d="M323 534c12-110 63-184 152-184 65 0 111 56 112 127-33-17-57-37-77-65-33 43-97 72-187 82z"/>
+  <path fill="url(#suit)" d="M220 1200c5-223 26-353 84-449 40-66 107-104 181-104 82 0 151 42 194 119 47 84 63 226 67 434z"/>
+  <path fill="url(#pinstripe)" d="M220 1200c5-223 26-353 84-449 40-66 107-104 181-104 82 0 151 42 194 119 47 84 63 226 67 434z"/>
+  <path fill="#e4ddd1" d="M400 660h115l47 114-99 82-112-81z"/>
+  <path fill="#f0eee9" d="M431 670h50l18 127-43 38-43-38z"/>
+  <path fill="#8a4d3e" d="m456 790 27 18-19 207-19 33-19-33-17-207 27-18z"/>
+  <path fill="#24292b" d="m485 668 99 75-58 112-70-75zM402 668l-91 79 54 108 72-75z"/>
+  <path fill="#b69779" d="M1420 1200c-5-251 15-401 92-512 47-68 121-101 209-97 78 4 142 44 183 115 51 88 68 245 65 494z"/>
+  <path fill="#d9c2a8" d="M1578 584c-12-69 8-144 58-180 44-32 106-28 143 13 36 39 42 104 16 155l-29 52-147-2z"/>
+  <path fill="#40362f" d="M1562 550c-7-105 36-182 120-193 71-10 121 39 129 112-32-15-62-39-82-73-26 44-81 80-167 100z"/>
+  <path fill="url(#suit)" d="M1448 1200c7-206 26-335 82-416 43-62 111-95 191-91 87 4 145 47 181 126 37 83 48 220 48 381z"/>
+  <path fill="url(#pinstripe)" d="M1448 1200c7-206 26-335 82-416 43-62 111-95 191-91 87 4 145 47 181 126 37 83 48 220 48 381z"/>
+  <path fill="#e4ddd1" d="M1646 711h105l43 104-96 75-98-72z"/>
+  <path fill="#f5f0e8" d="M1676 721h47l19 109-42 42-41-42z"/>
+  <path fill="#8a4d3e" d="m1698 830 25 16-17 185-19 31-19-31-15-185 25-16z"/>
+  <path fill="#24292b" d="m1724 720 91 69-52 103-65-67zM1644 721l-83 74 50 98 66-66z"/>
+  <path fill="#e3d4c3" opacity=".32" d="M0 0h2400v1200H0z"/>
+  <path fill="url(#light)" d="M0 0h1200L780 1200H0z"/>
+</svg>

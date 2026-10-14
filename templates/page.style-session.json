@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "hero": {"type":"ab-style-session-hero","settings":{}},
+    "steps": {"type":"ab-style-session-steps","blocks":{
+      "step_1":{"type":"step","settings":{"title":"Tell us about your occasion","text":"<p>Share your plans, preferences, and the details that matter to you.</p>"}},
+      "step_2":{"type":"step","settings":{"title":"Meet your stylist","text":"<p>Explore fabrics, fit, and personal details together.</p>"}},
+      "step_3":{"type":"step","settings":{"title":"Make it yours","text":"<p>Your made-to-order look is refined through the fitting process.</p>"}}
+    },"block_order":["step_1","step_2","step_3"],"settings":{}},
+    "featured": {"type":"ab-style-session-featured","settings":{"collection":"wedding-suits","products_to_show":4}},
+    "testimonials": {"type":"ab-style-session-testimonials","settings":{}},
+    "faq": {"type":"ab-style-session-faq","blocks":{
+      "faq_1":{"type":"faq","settings":{"question":"What happens in a style session?","answer":"<p>Your stylist learns about your occasion and preferences, then helps you explore a made-to-order look.</p>"}},
+      "faq_2":{"type":"faq","settings":{"question":"How long does a consultation take?","answer":"<p>Your team can add the expected session length here.</p>"}}
+    },"block_order":["faq_1","faq_2"],"settings":{}},
+    "booking": {"type":"ab-style-session-booking","settings":{}}
+  },
+  "order": ["hero","steps","featured","testimonials","faq","booking"]
+}

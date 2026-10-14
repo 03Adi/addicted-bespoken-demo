@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1400" role="img" aria-labelledby="title desc">
+  <title id="title">Bespoke tailoring style session</title>
+  <desc id="desc">Illustrated portrait scene of a client trying on a tailored charcoal suit.</desc>
+  <defs>
+    <linearGradient id="wall" x2="0" y2="1"><stop stop-color="#d7c5b1"/><stop offset="1" stop-color="#92735f"/></linearGradient>
+    <linearGradient id="suit" x2="1" y2="1"><stop stop-color="#40474a"/><stop offset="1" stop-color="#171c1f"/></linearGradient>
+    <linearGradient id="glow" x2="0" y2="1"><stop stop-color="#fff4df" stop-opacity=".58"/><stop offset="1" stop-color="#fff4df" stop-opacity="0"/></linearGradient>
+    <pattern id="stripe" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M4 0v20" stroke="#aab0ae" stroke-opacity=".15" stroke-width="2"/></pattern>
+  </defs>
+  <path fill="url(#wall)" d="M0 0h900v1400H0z"/>
+  <path fill="#eee3d4" opacity=".68" d="M0 0h900v660H0z"/>
+  <path fill="#b3967b" d="M58 96h784v520H58z"/>
+  <path fill="url(#glow)" d="M58 96h784v520H58z"/>
+  <path fill="#56483e" d="M0 1020h900v380H0z"/>
+  <path fill="#302b27" d="M0 1160h900v240H0z"/>
+  <path fill="#cfb69c" d="M130 514c-20-82 3-165 63-204 54-35 128-24 166 26 39 51 36 132 1 188l-37 56-163-5z"/>
+  <path fill="#51433b" d="M108 470c2-135 63-225 170-225 73 0 124 62 123 147-40-21-70-52-93-90-37 53-103 92-200 112z"/>
+  <path fill="#dfccb5" d="M270 608h206l-54 304H225z"/>
+  <path fill="url(#suit)" d="M50 1400c8-265 35-459 102-590 50-99 133-153 243-153 102 0 194 63 245 165 57 113 78 307 91 578z"/>
+  <path fill="url(#stripe)" d="M50 1400c8-265 35-459 102-590 50-99 133-153 243-153 102 0 194 63 245 165 57 113 78 307 91 578z"/>
+  <path fill="#e7dfd3" d="M273 662h124l52 131-112 103-113-99z"/>
+  <path fill="#f4f0e9" d="M310 674h54l24 148-49 46-48-46z"/>
+  <path fill="#8c4e3f" d="m335 828 30 19-21 241-22 39-20-39-18-241 30-19z"/>
+  <path fill="#252a2c" d="m370 662 121 92-69 139-90-97zM272 662l-111 95 64 134 91-94z"/>
+  <path fill="#a38568" opacity=".8" d="M0 1080c189-74 336-59 473 2 144 65 273 66 427 7v311H0z"/>
+</svg>

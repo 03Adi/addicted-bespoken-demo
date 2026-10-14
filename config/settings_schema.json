@@ -1466,5 +1466,34 @@
         "label": "t:settings_schema.customer_accounts.settings.customer_account_menu.label"
       }
     ]
+  },
+  {
+    "name": "WhatsApp style session",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "whatsapp_enabled",
+        "label": "Show floating WhatsApp button on every page",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_phone",
+        "label": "WhatsApp phone number",
+        "info": "Include country code. Use digits only, for example 14155550123."
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_message",
+        "label": "Prefilled message",
+        "default": "Hi, I'd like to book a style session."
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_accessibility_label",
+        "label": "Button accessibility label",
+        "default": "Chat with us on WhatsApp"
+      }
+    ]
   }
 ]

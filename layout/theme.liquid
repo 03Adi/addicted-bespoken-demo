@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
+    {{ 'addicted-task-one.css' | asset_url | stylesheet_tag }}
 
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
@@ -344,6 +345,24 @@
 
     {% sections 'footer-group' %}
 
+    {%- assign whatsapp_number = settings.whatsapp_phone | remove: '+' | remove: ' ' | remove: '-' | remove: '(' | remove: ')' -%}
+    {%- if settings.whatsapp_enabled and whatsapp_number != blank -%}
+      <a
+        class="ab-whatsapp"
+        href="https://wa.me/{{ whatsapp_number }}?text={{ settings.whatsapp_message | url_encode }}"
+          data-attribution-whatsapp
+          data-phone="{{ whatsapp_number }}"
+          data-message="{{ settings.whatsapp_message | escape }}"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="{{ settings.whatsapp_accessibility_label | escape }}"
+      >
+        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <path d="M16.02 3.2A12.7 12.7 0 0 0 5.1 22.37L3.3 29l6.8-1.78A12.7 12.7 0 1 0 16.02 3.2Zm0 23.08c-1.94 0-3.83-.52-5.48-1.51l-.4-.24-4.04 1.06 1.08-3.94-.26-.41a10.3 10.3 0 1 1 9.1 5.04Zm5.65-7.72c-.31-.16-1.84-.91-2.13-1.02-.29-.1-.5-.16-.7.16-.21.31-.8 1.02-.98 1.23-.18.2-.36.23-.67.08-.31-.16-1.32-.49-2.52-1.56-.93-.83-1.56-1.85-1.74-2.16-.18-.31-.02-.48.14-.64.14-.14.31-.36.47-.54.15-.18.2-.31.31-.52.1-.2.05-.39-.03-.54-.08-.16-.7-1.69-.96-2.31-.25-.6-.51-.52-.7-.53h-.6c-.2 0-.54.08-.83.39-.28.31-1.08 1.06-1.08 2.59s1.1 3 1.25 3.21c.16.21 2.17 3.31 5.25 4.64.73.32 1.3.51 1.74.66.73.23 1.4.2 1.92.12.59-.09 1.84-.75 2.1-1.48.26-.72.26-1.34.18-1.47-.08-.13-.29-.21-.6-.36Z"/>
+        </svg>
+      </a>
+    {%- endif -%}
+
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
       <li id="a11y-new-window-message">{{ 'accessibility.link_messages.new_window' | t }}</li>
@@ -401,5 +420,6 @@
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+    <script src="{{ 'addicted-attribution.js' | asset_url }}" defer="defer"></script>
   </body>
 </html>

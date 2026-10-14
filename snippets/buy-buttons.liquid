@@ -23,8 +23,21 @@
       if block.settings.show_dynamic_checkout and gift_card_recipient_feature_active == false
         assign show_dynamic_checkout = true
       endif
+
+      assign bespoke_cta_mode = product.metafields.custom.cta_mode.value | default: 'add_to_cart'
     -%}
 
+    {%- if bespoke_cta_mode == 'book_session' -%}
+      <div class="product-form__buttons">
+        <a
+          id="ProductBookingButton-{{ section_id }}"
+          class="product-form__submit button button--full-width button--primary"
+          href="{{ pages['style-session'].url }}?product={{ product.title | url_encode }}"
+        >
+          {{ 'products.product.book_style_session' | t }}
+        </a>
+      </div>
+    {%- else -%}
     <product-form
       class="product-form"
       data-hide-errors="{{ gift_card_recipient_feature_active }}"
@@ -102,6 +115,7 @@
         </div>
       {%- endform -%}
     </product-form>
+    {%- endif -%}
   {%- else -%}
     <div class="product-form">
       <div class="product-form__buttons form">

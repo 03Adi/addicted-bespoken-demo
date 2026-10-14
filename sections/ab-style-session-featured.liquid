@@ -1,0 +1,48 @@
+<section class="ab-section ab-featured color-{{ section.settings.color_scheme }}">
+  <div class="page-width">
+    <div class="ab-section__intro ab-section__intro--split">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}<p class="ab-eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+        {%- if section.settings.heading != blank -%}<h2 class="ab-section__heading">{{ section.settings.heading | escape }}</h2>{%- endif -%}
+        {%- if section.settings.intro != blank -%}<div class="rte">{{ section.settings.intro }}</div>{%- endif -%}
+      </div>
+      {%- if section.settings.collection != blank and section.settings.link_label != blank -%}<a class="ab-text-link" href="{{ section.settings.collection.url }}">{{ section.settings.link_label | escape }} <span aria-hidden="true">↗</span></a>{%- endif -%}
+    </div>
+    {%- if section.settings.collection != blank -%}
+      <div class="ab-products">
+        {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
+          <a class="ab-product" href="{{ product.url }}">
+            <div class="ab-product__media">
+              {%- if product.featured_image != blank -%}{{ product.featured_image | image_url: width: 900 | image_tag: class: 'ab-product__image', widths: '360, 540, 720, 900', sizes: '(min-width: 990px) 25vw, (min-width: 750px) 50vw, 90vw', loading: 'lazy', alt: product.featured_image.alt | default: product.title }}{%- endif -%}
+            </div>
+            <div class="ab-product__meta"><h3>{{ product.title | escape }}</h3><span>{{ product.price | money }}</span></div>
+          </a>
+        {%- else -%}
+          {%- for product in (1..4) -%}<div class="ab-product ab-product--empty" aria-hidden="true"><div class="ab-product__media"></div><div class="ab-product__meta"><h3>{{ section.settings.empty_card_label | escape }}</h3></div></div>{%- endfor -%}
+        {%- endfor -%}
+      </div>
+    {%- else -%}
+      <p class="ab-editor-note">{{ section.settings.choose_collection_label | escape }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name":"Featured suits",
+  "tag":"section",
+  "class":"section-ab-featured",
+  "settings":[
+    {"type":"text","id":"eyebrow","label":"Eyebrow","default":"THE BESPOKE EDIT"},
+    {"type":"text","id":"heading","label":"Heading","default":"Made for the moments that matter"},
+    {"type":"richtext","id":"intro","label":"Intro","default":"<p>Explore considered pieces, then meet with us to make yours.</p>"},
+    {"type":"collection","id":"collection","label":"Collection"},
+    {"type":"range","id":"products_to_show","min":1,"max":4,"step":1,"default":4,"label":"Products to show"},
+    {"type":"text","id":"link_label","label":"Collection link label","default":"View the collection"},
+    {"type":"text","id":"empty_card_label","label":"Empty product card label","default":"Select products in this collection"},
+    {"type":"text","id":"choose_collection_label","label":"Collection setup note","default":"Choose a collection in the theme editor to show featured products."},
+    {"type":"color_scheme","id":"color_scheme","label":"Color scheme","default":"scheme-1"}
+  ],
+  "presets":[{"name":"Featured suits"}]
+}
+{% endschema %}

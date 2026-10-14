@@ -1,0 +1,43 @@
+<section class="ab-hero color-{{ section.settings.color_scheme }}">
+  <div class="ab-hero__media">
+    <picture>
+      {%- if section.settings.mobile_image != blank -%}
+        <source media="(max-width: 749px)" srcset="{{ section.settings.mobile_image | image_url: width: 1000 }}">
+      {%- else -%}
+        <source media="(max-width: 749px)" srcset="{{ 'ab-style-session-demo-mobile.svg' | asset_url }}">
+      {%- endif -%}
+      {%- if section.settings.desktop_image != blank -%}
+        {{ section.settings.desktop_image | image_url: width: 2400 | image_tag: class: 'ab-hero__image', widths: '750, 1100, 1500, 2000, 2400', sizes: '100vw', loading: 'eager', fetchpriority: 'high' }}
+      {%- else -%}
+        <img class="ab-hero__image" src="{{ 'ab-style-session-demo-desktop.svg' | asset_url }}" width="2400" height="1200" alt="" loading="eager" fetchpriority="high">
+      {%- endif -%}
+    </picture>
+  </div>
+  <div class="ab-hero__shade"></div>
+  <div class="page-width ab-hero__content">
+    {%- if section.settings.eyebrow != blank -%}<p class="ab-eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+    {%- if section.settings.heading != blank -%}<h1 class="ab-hero__heading">{{ section.settings.heading | escape }}</h1>{%- endif -%}
+    {%- if section.settings.subheading != blank -%}<div class="ab-hero__copy rte">{{ section.settings.subheading }}</div>{%- endif -%}
+    {%- if section.settings.button_label != blank -%}
+      <a class="button button--primary" href="#style-session-booking">{{ section.settings.button_label | escape }}</a>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Style session hero",
+  "tag": "section",
+  "class": "section-ab-hero",
+  "settings": [
+    {"type":"image_picker","id":"desktop_image","label":"Desktop background image"},
+    {"type":"image_picker","id":"mobile_image","label":"Mobile background image"},
+    {"type":"text","id":"eyebrow","label":"Eyebrow","default":"MADE FOR YOUR MOMENT"},
+    {"type":"text","id":"heading","label":"Heading","default":"A suit that feels like yours."},
+    {"type":"richtext","id":"subheading","label":"Subheading","default":"<p>Meet with a stylist to create a look made around you, your occasion, and the way you want to feel.</p>"},
+    {"type":"text","id":"button_label","label":"Button label","default":"Book your style session"},
+    {"type":"color_scheme","id":"color_scheme","label":"Color scheme","default":"scheme-1"}
+  ],
+  "presets": [{"name":"Style session hero"}]
+}
+{% endschema %}
