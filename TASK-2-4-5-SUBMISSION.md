@@ -4,7 +4,7 @@
 
 `assets/addicted-attribution.js` reads `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term`, and `fbclid` on any storefront landing page. It stores first-touch values in `localStorage` under `ab_first_touch_attribution_v1` for 30 days, so browsing to another page does not replace them. Once expired, a later tagged visit starts a new window. If storage is unavailable, attribution is limited to the current page. The data is browser-local, not a server-side customer record, and does not follow someone across browsers or devices.
 
-When a marketer adds the Calendly URL to the Style Session section, the lazy-loaded embed receives the stored values as URL parameters. Calendly supports the five UTM values; persistence of `fbclid` in the Calendly booking record depends on Calendly. If the global WhatsApp button is enabled and has a phone number, its configured message appends `(ref: campaign-name)` when `utm_campaign` exists. The Calendly URL is currently blank and WhatsApp remains disabled pending owner-provided values.
+The Style Session page's Calendly URL and global WhatsApp button are configured in Shopify Theme Editor. The lazy-loaded embed receives stored values as URL parameters; Calendly supports the five UTM values, while persistence of `fbclid` in its booking record depends on Calendly. WhatsApp appends `(ref: campaign-name)` when `utm_campaign` exists. These account settings are not included in this public repository. A test booking has not been completed, so end-to-end attribution is still unverified.
 
 ## Task 4 - Tracking audit of the public live site
 

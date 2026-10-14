@@ -6,15 +6,15 @@ Shopify Dawn theme work for the Addicted Bespoken developer assignment. The sour
 
 | Task | Status | Implemented / observed | Remaining before submission |
 | --- | --- | --- | --- |
-| 1. Style Session landing page | Built locally; needs final store QA | `templates/page.style-session.json` and reusable sections for hero, steps, featured suits, testimonials, FAQ, and booking. Includes responsive demo SVG hero artwork. | Preview desktop/mobile on the target unpublished theme. Replace demo artwork with approved brand images if supplied. Confirm the selected suits collection and page assignment in Shopify. Calendly and testimonials remain blank because approved content/URL was not provided. |
-| 2. Ad attribution through booking | Code built; live booking test pending | `assets/addicted-attribution.js` keeps first-touch UTM values and `fbclid` for 30 days and appends them to the Calendly URL; campaign is added to WhatsApp text when configured. | Add the owner's Calendly URL and WhatsApp number/message in Theme Editor, then verify a test booking and referral values. These business values were intentionally left blank. |
+| 1. Style Session landing page | Configured on live theme; approved testimonials intentionally blank | `templates/page.style-session.json` and reusable sections for hero, steps, featured suits, testimonials, FAQ, and booking. The page uses responsive demo SVG hero artwork, the `wedding-suits` collection, a Calendly embed, and the floating WhatsApp CTA. The page template is assigned to the Style Session page. | Review desktop/mobile and replace demo artwork only if approved brand photos are supplied. Add approved testimonials if available; the empty section is hidden from storefront visitors. |
+| 2. Ad attribution through booking | Code and booking links configured; live booking test pending | `assets/addicted-attribution.js` keeps first-touch UTM values and `fbclid` for 30 days and appends them to the Calendly URL; campaign is added to WhatsApp text. Calendly and WhatsApp values were saved in Shopify Theme Editor and are intentionally not stored in this public repository. | Complete a test booking and verify that referral values arrive as expected. |
 | 3. Bespoke product detail | Built locally; product-data QA pending | `templates/product.bespoke.json` and `sections/ab-product-bespoke-details.liquid` provide optional fabric, production-time, lapel, lining, and monogram details from product metafields. | Assign the template to a suitable product, populate its metafields, and inspect desktop/mobile product views and cart flow. |
 | 4. Tracking audit | Audit written; event-level validation incomplete | Findings and recommendations are in [TASK-4-5-LIVE-AUDIT.md](TASK-4-5-LIVE-AUDIT.md) and [TASK-2-4-5-SUBMISSION.md](TASK-2-4-5-SUBMISSION.md). | Validate real browser events with Meta Pixel Helper/Tag Assistant and Network tools; confirm consent behavior and deduplication. Those tools/test events were unavailable during the audit. |
 | 5. Mobile speed and booking review | Review written; screenshot still to attach | Audit notes include mobile PageSpeed field data and ranked booking friction fixes. | Save a screenshot from the linked PageSpeed report, confirm the tested URL matches the assignment's landing-page requirement, and include it with submission. PSI lab diagnosis was still loading; no Lighthouse lab score is claimed. |
 
 ### Why some items remain
 
-The implementation and available audit work were completed first within the time available. Store-owner inputs (approved hero images, testimonials, Calendly URL, and WhatsApp contact details) were not available, and some remaining items require authenticated Shopify Admin changes or a real booking/test event. The screenshot/recording and end-to-end QA are submission steps; they should not be represented as completed until captured.
+The implementation and available audit work were completed first within the time available. Approved customer testimonials and brand photography were not provided, so demo artwork is used and the empty testimonial section is hidden. A real booking/test event, PageSpeed screenshot, and screen recording remain submission/QA steps and should not be represented as completed until captured.
 
 ## Local preview
 
@@ -25,10 +25,12 @@ shopify auth login
 shopify theme dev --store addicted-bespoken-demo.myshopify.com
 ```
 
-The persistent unpublished assignment preview is theme ID `188152742139`. Push the full theme folders (including Dawn's base files) to that theme and leave the live theme untouched:
+Theme ID `188152742139` is the published live assignment theme. Use an unpublished theme for future development and QA. Push to the live theme only after reviewing the exact files and confirming the intended deployment. Shopify CLI requires `--allow-live` when pushing selected files to a live theme.
+
+For a fresh unpublished QA theme, authenticate and run:
 
 ```powershell
-shopify theme push --store addicted-bespoken-demo.myshopify.com --theme 188152742139 `
+shopify theme push --store addicted-bespoken-demo.myshopify.com --unpublished --theme "Addicted Bespoken QA" `
   --only "assets/**" `
   --only "config/**" `
   --only "layout/**" `

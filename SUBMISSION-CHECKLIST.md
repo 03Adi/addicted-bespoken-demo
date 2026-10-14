@@ -4,7 +4,7 @@ Use this checklist to assemble the handoff for the recruiter/interviewer. The as
 
 ## Required items
 
-- [ ] **Preview link:** share the unpublished assignment theme's storefront preview URL. Check that the interviewer can open it.
+- [ ] **Preview link:** share the published Style Session page: https://addicted-bespoken-demo.myshopify.com/pages/style-session. Check that the interviewer can open it.
 - [ ] **Storefront password:** send separately through the submission channel if the dev store is password-protected. Do not put it in GitHub or this README.
 - [ ] **Collaborator access:** invite the reviewer to the dev store with the minimum access needed to open the Theme Editor. Confirm the invitation email is correct.
 - [ ] **GitHub repository:** https://github.com/03Adi/addicted-bespoken-demo
@@ -14,16 +14,16 @@ Use this checklist to assemble the handoff for the recruiter/interviewer. The as
 
 ## Still to verify / disclose
 
-- [ ] Confirm preview shows the latest code and is not the Dawn home page by mistake.
+- [ ] Confirm the public link opens the live assignment theme and Style Session page, rather than a stale draft preview.
 - [ ] Confirm page handle `/pages/style-session` uses `page.style-session`.
 - [ ] Confirm the Theme Editor's featured suits collection and suitable product metafields.
-- [ ] Replace demo hero artwork only if approved brand photography is available; do not imply the demo SVGs are real campaign photography.
-- [ ] Calendly URL, approved testimonials, and WhatsApp phone/message were left unset because the owner-provided values were not available.
+- [ ] Demo hero artwork is in use because approved brand photography was not supplied; do not imply the SVGs are real campaign photography.
+- [ ] Calendly URL and WhatsApp button are configured in the live theme. Approved testimonials were not supplied, so the section is hidden. Complete a real booking test if time and test availability permit.
 - [ ] Mention that Task 4 event-level validation and Task 2 real-booking attribution validation still need a test event/tools.
 - [ ] Do not claim a Lighthouse lab score: PSI's lab section was still loading in the captured report state. The recorded Core Web Vitals are field data.
 
 ## Suggested email/message body
 
-> Hi, I’m submitting my Shopify developer assignment. The message includes the unpublished theme preview and storefront password, collaborator access, GitHub repository, Tasks 1–3 walkthrough recording, Tasks 2/4/5 notes with assumptions, and the mobile PageSpeed screenshot. A few owner-dependent values (Calendly URL, approved testimonials, and WhatsApp contact) were left blank; the audit document also records event-level checks that still require the appropriate test tools and a test booking. I’m happy to walk through the implementation and make a small live change during the review call.
+> Hi, I’m submitting my Shopify developer assignment. The message includes the published Style Session page, storefront password, collaborator access, GitHub repository, Tasks 1–3 walkthrough recording, Tasks 2/4/5 notes with assumptions, and the mobile PageSpeed screenshot. Calendly and WhatsApp are configured; approved testimonials were not provided and are left blank. The audit document records event-level checks that still require the appropriate test tools and a test booking. I’m happy to walk through the implementation during the review call.
 
 Before sending, replace this draft with the actual preview URL, password, recording link, and screenshot file/link. Send the password separately if the channel permits.
