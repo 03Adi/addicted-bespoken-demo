@@ -11,17 +11,54 @@ Shopify Dawn theme assignment implementation and handoff notes. This repository 
 - Development-store storefront password: `Demo`
 - PageSpeed Insights mobile report (public Addicted Bespoken page, not this password-protected demo store): https://pagespeed.web.dev/analysis/https-www-addictedbespoken-com-pages-book-your-suit/hb2sssgdbv?form_factor=mobile
 
-The Pagespeed report is field data for `https://www.addictedbespoken.com/pages/book-your-suit`; it is not a Lighthouse lab score or a measurement of this assignment theme. No PageSpeed screenshot is included in this repository. Capture and attach one only if requested by the reviewer.
+The PageSpeed Insights report above is field data for `https://www.addictedbespoken.com/pages/book-your-suit`; it is not a measurement of this assignment theme. The screenshots below are a separate **Chrome DevTools Lighthouse mobile lab audit** of the Style Session landing page. The captured Performance score is 84, above the assignment's 70-point target. Lab scores can vary between runs; these screenshots should not be described as PageSpeed Insights field data.
+
+### Style Session mobile Lighthouse evidence
+
+Tested page: https://addicted-bespoken-demo.myshopify.com/pages/style-session
+
+Captured scores: Performance **84**, Accessibility **97**, Best Practices **77**, SEO **92**. Key displayed lab metrics: FCP **1.2 s**, LCP **1.6 s**, Total Blocking Time **590 ms**, CLS **0**, Speed Index **2.7 s**.
+
+![Chrome DevTools Lighthouse scores for the Style Session page](screenshots/lighthouse-mobile-scores.png)
+
+<details>
+<summary>Open the remaining Lighthouse report screenshots</summary>
+
+**Lab metrics**
+
+![Lighthouse mobile lab metrics](screenshots/lighthouse-mobile-metrics.png)
+
+**Opportunities and insights**
+
+![Lighthouse insights](screenshots/lighthouse-mobile-insights.png)
+
+**Performance diagnostics**
+
+![Lighthouse performance diagnostics](screenshots/lighthouse-mobile-diagnostics.png)
+
+**Accessibility audit**
+
+![Lighthouse accessibility score and contrast finding](screenshots/lighthouse-accessibility.png)
+
+**Best Practices audit**
+
+![Lighthouse Best Practices score and findings](screenshots/lighthouse-best-practices.png)
+
+**SEO audit**
+
+![Lighthouse SEO score and meta description finding](screenshots/lighthouse-seo.png)
+
+</details>
 
 ## Assignment status
 
 | Task | Status | Delivered | Remaining / limitations |
 | --- | --- | --- | --- |
-| 1. Style Session landing page | Implemented and published | `templates/page.style-session.json`; reusable hero, steps, featured suits, testimonials, FAQ, and booking sections; responsive demo SVG artwork; `wedding-suits` collection; Calendly embed and WhatsApp CTA configured in Shopify. | Approved brand photography and testimonials were not provided; demo artwork remains and the empty testimonials section is hidden. Review desktop/mobile and availability before final review. |
+| 1. Style Session landing page | Implemented and published | `templates/page.style-session.json`; reusable hero, steps, featured suits, testimonials, FAQ, and booking sections; responsive demo SVG artwork; `wedding-suits` collection; Calendly embed and WhatsApp CTA configured in Shopify. Chrome DevTools Lighthouse mobile lab run scored 84; screenshots are included above. | Approved brand photography and testimonials were not provided; demo artwork remains and the empty testimonials section is hidden. Lighthouse audits should be rerun if code or storefront content changes. |
 | 2. Ad attribution through booking | Code implemented; configured links verified; end-to-end test pending | `assets/addicted-attribution.js` stores first-touch UTM parameters and `fbclid` for 30 days and carries them to Calendly; WhatsApp text can include the campaign name. | No test booking was completed, so attribution persistence into the booking record and conversion reporting remain unverified. |
 | 3. Bespoke product detail | Template and section implemented; product QA pending | `templates/product.bespoke.json` and `sections/ab-product-bespoke-details.liquid` display optional product metafields for fabric, production time, lapel, lining, and monogram. | Assign the template to a suitable product, populate real metafields, then check product, cart, and mobile behavior. |
 | 4. Tracking audit | Audit findings documented; event-level validation pending | Reviewed the public site's tag inventory, consent/console observations, duplicate-configuration risk, and recommended checkout and Calendly event tracking approach. | Meta Pixel Helper, Tag Assistant, and Network-level event/deduplication checks require access to those tools and a test event. Findings are observations, not proof of duplicate conversions. |
-| 5. Mobile speed and booking review | Review documented; screenshot/assignment-URL confirmation pending | Reviewed mobile PSI field data and prioritized booking-friction opportunities on the public site. | Confirm which URL the assignment expects, run PSI on that exact URL, and attach a screenshot if requested. The assignment dev store may report its password page. No lab score is claimed. |
+| 5. Mobile speed and booking review | Review documented; Lighthouse landing-page screenshot captured | Reviewed mobile PSI field data and prioritized booking-friction opportunities on the public site. Separate Chrome DevTools Lighthouse mobile lab result for the assignment landing page is 84. | The PSI report linked above is from the public merchant site; it is not the assignment store. Confirm whether the reviewer requires a Google PSI screenshot in addition to the included Lighthouse evidence. |
 
 ## Task 2, 4, 5 notes and assumptions
 
