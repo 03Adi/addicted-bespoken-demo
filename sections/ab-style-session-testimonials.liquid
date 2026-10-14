@@ -1,12 +1,4 @@
-{%- assign show_testimonials = false -%}
-{%- for block in section.blocks -%}
-  {%- assign quote_text = block.settings.quote | strip_html | strip -%}
-  {%- assign customer_name = block.settings.customer | strip -%}
-  {%- unless quote_text == blank or quote_text contains 'Add an approved customer quote' or customer_name == blank or customer_name == 'Customer name' -%}
-    {%- assign show_testimonials = true -%}
-  {%- endunless -%}
-{%- endfor -%}
-{%- if show_testimonials or request.design_mode -%}
+{%- if section.blocks.size > 0 or request.design_mode -%}
   <section class="ab-section ab-testimonials color-{{ section.settings.color_scheme }}">
     <div class="page-width">
       <div class="ab-section__intro">
@@ -14,19 +6,15 @@
         {%- if section.settings.heading != blank -%}<h2 class="ab-section__heading">{{ section.settings.heading | escape }}</h2>{%- endif -%}
         {%- if section.settings.intro != blank -%}<div class="rte">{{ section.settings.intro }}</div>{%- endif -%}
       </div>
-      {%- if show_testimonials -%}<div class="ab-testimonials__grid">
+      <div class="ab-testimonials__grid">
         {%- for block in section.blocks -%}
-          {%- assign quote_text = block.settings.quote | strip_html | strip -%}
-          {%- assign customer_name = block.settings.customer | strip -%}
-          {%- unless quote_text == blank or quote_text contains 'Add an approved customer quote' or customer_name == blank or customer_name == 'Customer name' -%}
-            <figure class="ab-quote" {{ block.shopify_attributes }}>
-              <div class="ab-quote__stars" aria-label="{{ block.settings.rating_label | escape }}">★★★★★</div>
-              <blockquote>{{ block.settings.quote }}</blockquote>
-              <figcaption><strong>{{ block.settings.customer | escape }}</strong>{%- if block.settings.location != blank -%}<span>{{ block.settings.location | escape }}</span>{%- endif -%}</figcaption>
-            </figure>
-          {%- endunless -%}
+          <figure class="ab-quote" {{ block.shopify_attributes }}>
+            <div class="ab-quote__stars" aria-label="{{ block.settings.rating_label | escape }}">★★★★★</div>
+            {%- if block.settings.quote != blank -%}<blockquote>{{ block.settings.quote }}</blockquote>{%- endif -%}
+            <figcaption><strong>{{ block.settings.customer | escape }}</strong>{%- if block.settings.location != blank -%}<span>{{ block.settings.location | escape }}</span>{%- endif -%}</figcaption>
+          </figure>
         {%- endfor -%}
-      </div>{%- elsif request.design_mode -%}<p class="ab-editor-note">Add an approved customer quote and customer name to display testimonials.</p>{%- endif -%}
+      </div>
     </div>
   </section>
 {%- endif -%}
