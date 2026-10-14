@@ -1,69 +1,69 @@
-# Addicted Bespoken Shopify Theme Assignment
+# Addicted Bespoken — Shopify Developer Assignment
 
-Shopify Dawn theme work for the Addicted Bespoken developer assignment. The source in this repository is the local theme; the GitHub remote is `https://github.com/03Adi/addicted-bespoken-demo.git`.
+Shopify Dawn theme assignment implementation and handoff notes. This repository is the theme source; the Shopify store and GitHub links below are the review entry points.
 
-## Task status
+## Review links and access
 
-| Task | Status | Implemented / observed | Remaining before submission |
+- Storefront: https://addicted-bespoken-demo.myshopify.com/
+- Style Session landing page: https://addicted-bespoken-demo.myshopify.com/pages/style-session
+- GitHub repository: https://github.com/03Adi/addicted-bespoken-demo
+- Published theme ID: `188152742139` (Copy of Dawn)
+- Development-store storefront password: `Demo`
+- PageSpeed Insights mobile report (public Addicted Bespoken page, not this password-protected demo store): https://pagespeed.web.dev/analysis/https-www-addictedbespoken-com-pages-book-your-suit/hb2sssgdbv?form_factor=mobile
+
+The Pagespeed report is field data for `https://www.addictedbespoken.com/pages/book-your-suit`; it is not a Lighthouse lab score or a measurement of this assignment theme. No PageSpeed screenshot is included in this repository. Capture and attach one only if requested by the reviewer.
+
+## Assignment status
+
+| Task | Status | Delivered | Remaining / limitations |
 | --- | --- | --- | --- |
-| 1. Style Session landing page | Configured on live theme; approved testimonials intentionally blank | `templates/page.style-session.json` and reusable sections for hero, steps, featured suits, testimonials, FAQ, and booking. The page uses responsive demo SVG hero artwork, the `wedding-suits` collection, a Calendly embed, and the floating WhatsApp CTA. The page template is assigned to the Style Session page. | Review desktop/mobile and replace demo artwork only if approved brand photos are supplied. Add approved testimonials if available; the empty section is hidden from storefront visitors. |
-| 2. Ad attribution through booking | Code and booking links configured; live booking test pending | `assets/addicted-attribution.js` keeps first-touch UTM values and `fbclid` for 30 days and appends them to the Calendly URL; campaign is added to WhatsApp text. Calendly and WhatsApp values were saved in Shopify Theme Editor and are intentionally not stored in this public repository. | Complete a test booking and verify that referral values arrive as expected. |
-| 3. Bespoke product detail | Built locally; product-data QA pending | `templates/product.bespoke.json` and `sections/ab-product-bespoke-details.liquid` provide optional fabric, production-time, lapel, lining, and monogram details from product metafields. | Assign the template to a suitable product, populate its metafields, and inspect desktop/mobile product views and cart flow. |
-| 4. Tracking audit | Audit written; event-level validation incomplete | Findings and recommendations are in [TASK-4-5-LIVE-AUDIT.md](TASK-4-5-LIVE-AUDIT.md) and [TASK-2-4-5-SUBMISSION.md](TASK-2-4-5-SUBMISSION.md). | Validate real browser events with Meta Pixel Helper/Tag Assistant and Network tools; confirm consent behavior and deduplication. Those tools/test events were unavailable during the audit. |
-| 5. Mobile speed and booking review | Review written; screenshot still to attach | Audit notes include mobile PageSpeed field data and ranked booking friction fixes. | Save a screenshot from the linked PageSpeed report, confirm the tested URL matches the assignment's landing-page requirement, and include it with submission. PSI lab diagnosis was still loading; no Lighthouse lab score is claimed. |
+| 1. Style Session landing page | Implemented and published | `templates/page.style-session.json`; reusable hero, steps, featured suits, testimonials, FAQ, and booking sections; responsive demo SVG artwork; `wedding-suits` collection; Calendly embed and WhatsApp CTA configured in Shopify. | Approved brand photography and testimonials were not provided; demo artwork remains and the empty testimonials section is hidden. Review desktop/mobile and availability before final review. |
+| 2. Ad attribution through booking | Code implemented; configured links verified; end-to-end test pending | `assets/addicted-attribution.js` stores first-touch UTM parameters and `fbclid` for 30 days and carries them to Calendly; WhatsApp text can include the campaign name. | No test booking was completed, so attribution persistence into the booking record and conversion reporting remain unverified. |
+| 3. Bespoke product detail | Template and section implemented; product QA pending | `templates/product.bespoke.json` and `sections/ab-product-bespoke-details.liquid` display optional product metafields for fabric, production time, lapel, lining, and monogram. | Assign the template to a suitable product, populate real metafields, then check product, cart, and mobile behavior. |
+| 4. Tracking audit | Audit findings documented; event-level validation pending | Reviewed the public site's tag inventory, consent/console observations, duplicate-configuration risk, and recommended checkout and Calendly event tracking approach. | Meta Pixel Helper, Tag Assistant, and Network-level event/deduplication checks require access to those tools and a test event. Findings are observations, not proof of duplicate conversions. |
+| 5. Mobile speed and booking review | Review documented; screenshot/assignment-URL confirmation pending | Reviewed mobile PSI field data and prioritized booking-friction opportunities on the public site. | Confirm which URL the assignment expects, run PSI on that exact URL, and attach a screenshot if requested. The assignment dev store may report its password page. No lab score is claimed. |
 
-### Why some items remain
+## Task 2, 4, 5 notes and assumptions
 
-The implementation and available audit work were completed first within the time available. Approved customer testimonials and brand photography were not provided, so demo artwork is used and the empty testimonial section is hidden. A real booking/test event, PageSpeed screenshot, and screen recording remain submission/QA steps and should not be represented as completed until captured.
+### Task 2 — attribution behavior
 
-## Local preview
+The attribution script reads `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term`, and `fbclid` on storefront entry. It keeps the first tagged visit in browser `localStorage` for 30 days; an unexpired first-touch record is not overwritten by later ad visits. When browser storage is unavailable, attribution is limited to the current page. This is browser-local, not a server-side customer profile, and does not follow a visitor across devices or browsers. The Calendly embed receives these values as query parameters. Calendly's handling of `fbclid` in saved booking records is unverified. WhatsApp can append the campaign name to its prefilled message. The live Calendly URL and WhatsApp number are configured in Shopify theme settings and are intentionally omitted from this public source repository.
 
-Use Shopify CLI v3+ from this theme directory. The old `shopify login --store ...` command is not part of current Shopify CLI; authenticate automatically when a store command prompts, or run `shopify auth login`.
+### Task 4 — public-site tracking audit
+
+Reviewed the public homepage, `/products/velvet-three-piece-suit`, and `/pages/designer-desk` on 14 October 2026. Observed tags included Meta Pixel `1424443661520269`, GA4 `G-0PZD4THN8W` and `G-EE7P2WFDRE`, Google Ads `AW-11039493971`, GTM `GTM-NFWJ77Z`, Microsoft Clarity `tbnjerwj8s`, HubSpot portal `247408262`, and Shopify web pixels. Two Google Ads configuration requests appeared per page for the same Ads ID with different ID formatting; this is a duplicate-configuration risk to investigate, not confirmation of duplicate conversions.
+
+The public source included a Calendly `postMessage` listener that forwarded `calendly_invitee_email` to `dataLayer`; review whether that personal data is necessary and consented before forwarding it to tags. A Calendly `calendly.event_scheduled` event is the appropriate point to consider for a booking Lead, with deduplication by booking/invitee identifier. No actual Meta/GA event payload, deduplication, test booking, form submission, or purchase was validated. Checkout tracking should use Shopify Customer Events/web pixels and respect consent; remove or reconcile older tracking before adding replacement pixels.
+
+### Task 5 — speed and booking review
+
+The mobile PageSpeed Insights report showed 28-day Chrome UX field data: homepage Core Web Vitals failed (LCP 2.6 s, INP 206 ms, CLS 0); the public product page showed origin-level data passing (LCP 1.7 s, INP 148 ms, CLS 0). These are field metrics from the public site, not a lab score for this assignment theme. The report's lab diagnosis was still loading during review.
+
+Prioritized opportunities observed: prevent a timed mobile offer modal from obscuring the booking call to action; standardize booking destinations; correct a mismatched product-gallery image; audit third-party scripts before removing any; and verify mobile image sizing/`srcset` in Network tools. The Designer Desk form also asks for several qualification fields before a consultation. These are recommendations, not changes made to the public merchant site.
+
+## Local development
+
+Use Shopify CLI v3+ from the theme root. Current CLI uses `shopify auth login`; the old `shopify login --store ...` command is unavailable.
 
 ```powershell
 shopify auth login
 shopify theme dev --store addicted-bespoken-demo.myshopify.com
 ```
 
-Theme ID `188152742139` is the published live assignment theme. Use an unpublished theme for future development and QA. Push to the live theme only after reviewing the exact files and confirming the intended deployment. Shopify CLI requires `--allow-live` when pushing selected files to a live theme.
-
-For a fresh unpublished QA theme, authenticate and run:
-
-```powershell
-shopify theme push --store addicted-bespoken-demo.myshopify.com --unpublished --theme "Addicted Bespoken QA" `
-  --only "assets/**" `
-  --only "config/**" `
-  --only "layout/**" `
-  --only "locales/**" `
-  --only "sections/**" `
-  --only "snippets/**" `
-  --only "templates/**"
-```
-
-Shopify CLI will return the preview and editor URLs. Do not use `--publish` for assignment review unless the store owner explicitly decides to publish after QA.
+The published theme is ID `188152742139`. Prefer an unpublished theme for development and QA. Review the exact changes before pushing to the published theme; Shopify CLI requires `--allow-live` for a live theme push.
 
 ## Git workflow (PowerShell)
 
-Run from the repository root. Review what is being committed, then commit and push the current `main` branch:
+Run at the repository root and inspect staged changes before committing:
 
 ```powershell
 git status
-git diff --stat
+git pull --rebase origin main
 git add -A
+git diff --cached --stat
 git status
-git commit -m "Build Addicted Bespoken assignment theme"
+git commit -m "Update assignment handoff notes"
 git push -u origin main
 ```
 
-Review `git status` after `git add -A` and make sure it lists only assignment/theme files before committing. If Git reports “nothing to commit,” check `git status` and `git log -1` before retrying. If `main` is not the intended branch, check `git branch --show-current` and use that branch name in the push command. Never commit storefront passwords, access tokens, customer data, or private collaborator credentials.
-
-## Submission materials
-
-- [Submission checklist](SUBMISSION-CHECKLIST.md)
-- [5–10 minute Tasks 1–3 recording guide](SCREEN-RECORDING-GUIDE.md)
-- [PageSpeed result and screenshot capture steps](PAGESPEED-RESULT.md)
-- [Tasks 2, 4, 5 and assumptions](TASK-2-4-5-SUBMISSION.md)
-- [Task 2 attribution detail](TASK-2-ATTRIBUTION.md)
-- [Tasks 4–5 live audit](TASK-4-5-LIVE-AUDIT.md)
-
-The assignment PDF does not specify a recipient or submission portal. Send these items through the recruiter/interviewer's channel and confirm the recipient if it was not provided.
+Do not commit Shopify access tokens, customer data, or private collaborator credentials. The development storefront password is listed above for assignment review; rotate/remove it when the store no longer needs to be shared.
