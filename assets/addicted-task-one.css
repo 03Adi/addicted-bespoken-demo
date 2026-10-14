@@ -32,8 +32,3 @@ section.ab-hero{color:#fff;background:#26211e}
   .ab-booking__frame iframe{height:820px}
 }
 @media (prefers-reduced-motion:reduce){.ab-hero__image{animation:none}}
-#ab-whatsapp-style-session{position:fixed;z-index:30;right:24px;bottom:24px;width:58px;height:58px;display:grid;place-items:center;overflow:hidden;border-radius:50%;background:#128c54;color:#fff;box-shadow:0 3px 18px rgba(0,0,0,.22);text-decoration:none;line-height:1}
-#ab-whatsapp-style-session svg{display:block;width:31px;height:31px;max-width:31px;max-height:31px;flex:none;fill:currentColor}
-#ab-whatsapp-style-session:hover{transform:translateY(-3px)}
-#ab-whatsapp-style-session:focus-visible{outline:3px solid #111;outline-offset:3px}
-@media screen and (max-width: 749px){#ab-whatsapp-style-session{right:16px;bottom:calc(80px + env(safe-area-inset-bottom));width:54px;height:54px}#ab-whatsapp-style-session svg{width:29px;height:29px;max-width:29px;max-height:29px}}
